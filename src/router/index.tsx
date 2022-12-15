@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
 
 const Index = lazy(() => import('@/pages/Index'));
@@ -8,10 +9,14 @@ const ROUTE_CONFIG = [
   { path: '*', element: <NotFound /> },
 ];
 
-function routes() {
+function Routes() {
   const elements = useRoutes(ROUTE_CONFIG);
 
-  return elements;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      {elements}
+    </Suspense>
+  )
 }
 
-export default routes;
+export default Routes;

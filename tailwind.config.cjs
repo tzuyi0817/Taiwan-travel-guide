@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         sans: ["Monda", "Noto Sans TC", "sans-serif"],
       },
+      colors: {
+        primary: '#A8B8A5',
+      }
     },
   },
   plugins: [],
