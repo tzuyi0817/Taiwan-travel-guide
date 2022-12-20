@@ -11,9 +11,11 @@ const Header = tw.header`
   px-8
   items-center
   bg-white
+  z-[9999]
   transition-all
   md:px-12
   md:h-20
+  md:border-[1px]
 `;
 
 const HeaderBtn = tw.button`
@@ -42,7 +44,7 @@ const MenuItem = tw.p`
   md:py-1
   md:border-transparent
   md:border-b-2
-  md:hover:border-[#E0DA48]
+  md:hover:border-text-decoration
 `;
 
 function GuideHeader() {

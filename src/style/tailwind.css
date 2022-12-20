@@ -8,4 +8,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  #root {
+    @apply pt-16 md:pt-20;
+  }
+
+  h1 {
+    @apply text-[28px] text-[#1E1E1E];
+  }
 }

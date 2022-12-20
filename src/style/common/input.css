@@ -1,0 +1,15 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  .input {
+    @apply
+    rounded-[5px]
+    border-[1px]
+    border-[#cccccc] 
+    px-[26px]
+    py-3
+    w-[350px]
+    bg-[#F9F9F9]
+    focus:outline-primary;
+  }
+}
