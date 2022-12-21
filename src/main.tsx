@@ -4,11 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import App from '@/App';
 import '@/style/index.css';
 import '@/style/tailwind.css';
+import generateToken from '@/utils/generateToken';
 
+generateToken();
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
-)
+);

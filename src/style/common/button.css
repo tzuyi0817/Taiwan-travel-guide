@@ -8,7 +8,8 @@
     flex
     justify-center
     items-center
-    w-[350px]
+    w-[90%]
+    max-w-[350px]
     py-[10px]
     rounded-[5px]
     gap-2

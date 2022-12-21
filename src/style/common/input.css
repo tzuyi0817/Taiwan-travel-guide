@@ -8,7 +8,8 @@
     border-[#cccccc] 
     px-[26px]
     py-3
-    w-[350px]
+    w-[90%]
+    max-w-[350px]
     bg-[#F9F9F9]
     focus:outline-primary;
   }

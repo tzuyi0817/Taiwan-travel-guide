@@ -1,0 +1,7 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  .carousel {
+    @apply w-[90%] max-w-[350px] mx-auto;
+  }
+}

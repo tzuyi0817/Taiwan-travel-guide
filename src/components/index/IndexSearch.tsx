@@ -2,7 +2,7 @@ import { useState } from 'react';
 import GuideSelect from '@/components/GuideSelect';
 
 const options = [
-  { value: 'attractions', label: '探索景點' },
+  { value: 'scenicSpot', label: '探索景點' },
   { value: 'festival', label: '節慶活動' },
   { value: 'food', label: '品嚐美食' },
 ];
