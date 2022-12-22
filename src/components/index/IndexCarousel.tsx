@@ -22,20 +22,22 @@ function IndexCarousel() {
   }, []);
 
   return (
-    <GuideCarousel onClickItem={goScenicSpot} className="my-6">
-      {scenicSpot.map(attraction => {
-        const { ScenicSpotID, Picture, City, ScenicSpotName, Address } = attraction;
-        return (
-          <div key={ScenicSpotID} className="relative">
-            {Picture.PictureUrl1 
-              ? <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
-              : <div className="bg-secondary/40"></div>
-            }
-            <span className="middle text-white">{`${City ?? Address.slice(0, 3)} | ${ScenicSpotName}`}</span>
-          </div>
-        )
-      })}
-    </GuideCarousel>
+    scenicSpot.length 
+      ? <GuideCarousel onClickItem={goScenicSpot} className="my-6">
+        {scenicSpot.map(attraction => {
+          const { ScenicSpotID, Picture, City, ScenicSpotName, Address } = attraction;
+          return (
+            <div key={ScenicSpotID} className="carousel_item">
+              {Picture.PictureUrl1 
+                ? <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} className="carousel_image brightness-[0.8]" />
+                : <div className="carousel_image bg-secondary/40"><img src="/src/assets/icon/image.png" alt="" /></div>
+              }
+              <p className="middle text-white drop-shadow-2xl md:text-[28px]">{`${City ?? Address.slice(0, 3)} | ${ScenicSpotName}`}</p>
+            </div>
+          )
+        })}
+      </GuideCarousel>
+      : <></>
   )
 }
 

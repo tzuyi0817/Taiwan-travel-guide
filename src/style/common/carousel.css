@@ -2,6 +2,27 @@
 
 @layer components {
   .carousel {
-    @apply w-[90%] max-w-[350px] mx-auto;
+    @apply w-[90%] max-w-[350px] mx-auto md:max-w-[1110px];
+    &_item {
+      @apply relative;
+    }
+    &_image {
+      @apply w-full h-[185px] md:h-[400px] object-cover flex justify-center items-center;
+      img {
+        @apply max-w-[50px] md:max-w-[90px];
+      }
+    }
+    .slider-wrapper {
+      @apply rounded-2xl md:rounded-3xl;
+    }
+    .control-dots {
+      @apply !pr-4 md:!pr-8 md:!mb-7 flex items-center justify-end;
+      .dot {
+        @apply !mx-[3px] !opacity-100 !bg-[#C4C4C4] md:!mx-[6px] md:!w-4 md:!h-4;
+        &.selected {
+          @apply !bg-white !w-[10px] !h-[10px] md:!w-5 md:!h-5;
+        }
+      }
+    }
   }
 }

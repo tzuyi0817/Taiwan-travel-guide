@@ -9,12 +9,12 @@ export interface ScenicSpot {
   TravelInfo: string;
   OpenTime: string;
   Picture: {
-    PictureUrl1: string;
-    PictureDescription1: string;
-    PictureUrl2: string;
-    PictureDescription2: string;
-    PictureUrl3: string;
-    PictureDescription3: string;
+    PictureUrl1?: string;
+    PictureDescription1?: string;
+    PictureUrl2?: string;
+    PictureDescription2?: string;
+    PictureUrl3?: string;
+    PictureDescription3?: string;
   };
   MapUrl: string;
   Position: {
@@ -36,7 +36,7 @@ export interface ScenicSpot {
   TicketInfo: string;
   Remarks: string;
   Keyword: string;
-  City: string;
+  City?: string;
   SrcUpdateTime: string;
   UpdateTime: string;
 }
