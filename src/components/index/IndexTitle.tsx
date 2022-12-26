@@ -6,7 +6,7 @@ function IndexTitle() {
 
       <div className="flex gap-1 mt-[14px] justify-center">
         <img src="/src/assets/icon/location.png" alt="" />
-        <span className="text-sm">台灣旅遊景點導覽 Taiwan Travel Guide</span>
+        <span className="text-sm text-[#646464]">台灣旅遊景點導覽 Taiwan Travel Guide</span>
       </div>
     </div>
   )

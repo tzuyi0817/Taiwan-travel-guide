@@ -1,14 +1,16 @@
 import IndexTitle from '@/components/index/IndexTitle';
 import IndexSearch from '@/components/index/IndexSearch';
 import IndexCarousel from '@/components/index/IndexCarousel';
+import IndexActivity from '@/components/index/IndexActivity';
 
 function Index() {
   return (
-    <div>
+    <>
       <IndexTitle />
       <IndexSearch />
       <IndexCarousel />
-    </div>
+      <IndexActivity />
+    </>
   )
 }
 

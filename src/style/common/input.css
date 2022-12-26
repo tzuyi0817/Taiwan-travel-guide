@@ -8,7 +8,7 @@
     border-[#cccccc] 
     px-[26px]
     py-3
-    w-[90%]
+    w-full
     max-w-[350px]
     bg-[#F9F9F9]
     focus:outline-primary;

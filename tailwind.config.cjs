@@ -20,6 +20,7 @@ module.exports = {
         secondary: '#7F977B',
         'secondary-dark': '#65895F',
         'text-decoration': '#E0DA48',
+        link: '#FF725E',
       }
     },
   },

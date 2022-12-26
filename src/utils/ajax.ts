@@ -20,16 +20,13 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   response => response.data,
   error => {
-    // const { data } = error.response;
+    const { statusText } = error.response;
 
-    // if (data === 'Unauthorized') {
-    //   useCodeContentStore().setCodeId('');
-    //   useUserStore().setUser({});
-    //   localStorage.removeItem('code_token');
-    //   toast.showToast('account is logged out', 'error');
-    // } else {
-    //   toast.showToast(data?.message ?? error.message, 'error');
-    // }
+    if (statusText === 'Unauthorized') {
+
+    } else {
+      // toast.showToast(data?.message ?? error.message, 'error');
+    }
     return Promise.reject(error);
   }
 );

@@ -4,16 +4,20 @@
 
 @layer base {
   html {
-    @apply font-sans text-[#646464] tracking-wide;
+    @apply font-sans text-[#1E1E1E] tracking-wide;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   #root {
-    @apply pt-16 md:pt-20;
+    @apply py-16 md:pt-20 w-[90%] max-w-[350px] mx-auto;
   }
 
   h1 {
-    @apply text-[28px] text-[#1E1E1E];
+    @apply text-[28px];
+  }
+
+  h2 {
+    @apply text-2xl;
   }
 }

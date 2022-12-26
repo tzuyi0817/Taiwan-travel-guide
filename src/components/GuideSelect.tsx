@@ -9,7 +9,7 @@ interface Props {
 function GuideSelect(props: Props) {
   return (
     <Select
-      className="w-[90%] max-w-[350px]"
+      className="w-full max-w-[350px]"
       { ...props }
       theme={(theme) => ({
         ...theme,
