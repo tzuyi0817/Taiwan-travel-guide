@@ -8,12 +8,12 @@ function IndexActivity() {
   const [activity, setActivity] = useState<Activity[]>([]);
 
   async function getActivity() {
-    const parameters = generateParams({
+    const params = generateParams({
       $top: 4,
       $orderby: 'StartTime desc',
       $filter: 'Picture/PictureUrl1 ne null',
     });
-    const result = await ajax.get(`/v2/Tourism/Activity?${parameters}`);
+    const result = await ajax.get(`/v2/Tourism/Activity?${params}`);
 
     setActivity(result);
   }
@@ -30,7 +30,7 @@ function IndexActivity() {
     <div>
       <div className="index_caption">
         <h2>近期活動</h2>
-        <Link to="/">查看更多活動 〉</Link>
+        <Link to="/">查看更多活動</Link>
       </div>
 
       <ul>
@@ -39,7 +39,9 @@ function IndexActivity() {
 
           return (
             <li key={ActivityID} className="index_activity">
-              <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
+              <div className="picture">
+                <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
+              </div>
               <div className="ml-4 w-[calc(100%-106px)]">
                 <p className="text-xs text-[#646464]">{`${formatTime(StartTime)} ~ ${formatTime(EndTime)}`}</p>
                 <p className="font-bold ellipsis">{ActivityName}</p>

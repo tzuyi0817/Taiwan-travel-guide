@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '@/store';
 import App from '@/App';
 import '@/style/index.css';
 import '@/style/tailwind.css';
 import generateToken from '@/utils/generateToken';
 
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
 generateToken();
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

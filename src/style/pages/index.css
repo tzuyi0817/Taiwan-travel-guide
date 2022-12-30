@@ -1,17 +1,38 @@
 @import 'tailwindcss/components';
+@import '@/style/common/ellipsis.css';
 
 @layer components {
   .index {
     &_caption {
-      @apply flex justify-between items-center mt-6;
+      @apply flex justify-between items-center mt-8;
       a {
-        @apply text-link;
+        @apply
+        text-link 
+        relative
+        pr-3
+        after:content-[""]
+        after:absolute
+        after:top-1/2
+        after:right-0 
+        after:-translate-y-1/2
+        after:w-2
+        after:h-2
+        after:border-r-2
+        after:border-t-2
+        after:rotate-45
+        after:border-link;
       }
     }
     &_activity {
-      @apply flex my-4 items-center w-full;
-      img {
-        @apply w-[90px] rounded-lg
+      @apply flex my-4 items-center w-full cursor-pointer;
+      .picture {
+        @apply max-w-[90px] rounded-lg overflow-hidden;
+        img {
+          @apply transition-transform;
+        }
+      }
+      &:hover > .picture > img {
+        @apply scale-110;
       }
     }
   }

@@ -1,23 +1,19 @@
 import { useState } from 'react';
 import GuideSelect from '@/components/GuideSelect';
-
-const options = [
-  { value: 'scenicSpot', label: '探索景點' },
-  { value: 'activity', label: '節慶活動' },
-  { value: 'food', label: '品嚐美食' },
-];
+import { MENU_OPTIONS, MENU_PLACEHOLDER } from '@/config/menu';
+import type { MenuOption } from '@/types/menu';
 
 function IndexSearch() {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState(MENU_OPTIONS[0]);
 
   return (
     <div className="flex flex-col items-center gap-2">
       <GuideSelect
         defaultValue={selectedOption}
-        onChange={(select: { value: string; label: string; }) => setSelectedOption(select)}
-        options={options}
+        onChange={(select: MenuOption) => setSelectedOption(select)}
+        options={MENU_OPTIONS}
       />
-      <input type="text" className="input" placeholder="你想去哪裡？請輸入關鍵字" />
+      <input type="text" className="input" placeholder={MENU_PLACEHOLDER[selectedOption.value]} />
       <button className="btn">
         <img src="/src/assets/icon/search.png" alt="" /> 搜尋
       </button>

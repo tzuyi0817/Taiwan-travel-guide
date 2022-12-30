@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
+import { MENU_MAP } from '@/config/menu';
+import type { MenuKey } from '@/types/menu';
 
 const Header = tw.header`
   fixed
@@ -64,9 +67,13 @@ function GuideHeader() {
         </HeaderBtn>
 
         <Menu className={isOpenMenu ? 'block' : 'hidden md:relative' }>
-          <li><MenuItem>探索景點</MenuItem></li>
-          <li><MenuItem>節慶活動</MenuItem></li>
-          <li><MenuItem>品嚐美食</MenuItem></li>
+          {(Reflect.ownKeys(MENU_MAP) as Array<MenuKey>).map(menu => {
+            return (
+              <Link to={`/${menu}`} onClick={() => toggleMenu(false)} key={menu}>
+                <MenuItem>{MENU_MAP[menu]}</MenuItem>
+              </Link>
+            )
+          })}
         </Menu>
       </Header>
     </>

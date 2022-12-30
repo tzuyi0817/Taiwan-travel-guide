@@ -19,6 +19,7 @@ module.exports = {
         primary: '#A8B8A5',
         secondary: '#7F977B',
         'secondary-dark': '#65895F',
+        'secondary-light': '#6E7D60',
         'text-decoration': '#E0DA48',
         link: '#FF725E',
       }

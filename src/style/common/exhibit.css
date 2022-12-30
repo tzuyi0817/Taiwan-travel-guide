@@ -1,0 +1,22 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  .exhibit {
+    @apply flex overflow-x-auto w-full gap-4 my-4 h-[240px] cursor-pointer;
+    .picture {
+      @apply w-[220px] h-[160px] rounded-[20px] overflow-hidden;
+      img {
+        @apply transition-transform h-full w-full;
+      }
+    }
+    li:hover > .picture > img {
+      @apply scale-110;
+    }
+    .name {
+      @apply text-lg font-bold mt-[6px] ellipsis max-w-[220px];
+    }
+    .city {
+      @apply flex gap-1 items-center text-[#646464];
+    }
+  }
+}
