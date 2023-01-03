@@ -13,15 +13,15 @@ function GuideSearch({ type }: Props) {
   const [selectedOption, setSelectedOption] = useState(CITY_OPTIONS[0]);
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center">
       <GuideSelect
         defaultValue={selectedOption}
         onChange={(select: { value: string; label: string; }) => setSelectedOption(select)}
         options={CITY_OPTIONS}
       />
       <GuideDatePicker />
-      <input type="text" className="input" placeholder={MENU_PLACEHOLDER[type]} />
-      <button className="btn">
+      <input type="text" className="input mt-2" placeholder={MENU_PLACEHOLDER[type]} />
+      <button className="btn mt-2">
         <img src="/src/assets/icon/search.png" alt="" /> 搜尋
       </button>
     </div>

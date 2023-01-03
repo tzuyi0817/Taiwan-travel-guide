@@ -7,17 +7,17 @@ import type { Restaurant } from '@/types/restaurant';
 function IndexRestaurant() {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
 
-  async function getRestaurant() {
-    const params = generateParams({
-      $top: 4,
-      $filter: 'Picture/PictureUrl1 ne null and city ne null',
-    });
-    const result = await ajax.get(`/v2/Tourism/Restaurant?${params}`);
-
-    setRestaurants(result);
-  }
-
   useEffect(() => {
+    async function getRestaurant() {
+      const params = generateParams({
+        $top: 4,
+        $filter: 'Picture/PictureUrl1 ne null and city ne null',
+      });
+      const result = await ajax.get(`/v2/Tourism/Restaurant?${params}`);
+  
+      setRestaurants(result);
+    }
+
     getRestaurant();
   }, []);
 

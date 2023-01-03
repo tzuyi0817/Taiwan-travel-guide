@@ -7,22 +7,21 @@ import type { ScenicSpot } from '@/types/scenicSpot';
 function IndexCarousel() {
   const [scenicSpot, setScenicSpot] = useState<ScenicSpot[]>([]);
 
-  async function getScenicSpot() {
-    const params = generateParams({
-      $filter: 'Picture/PictureUrl1 ne null and city ne null',
-    });
-    const result = await ajax.get(`/v2/Tourism/ScenicSpot?${params}`);
-    const random = Math.random() * (result.length - 6) | 0;
-    const scenicSpots = result.length <= 6 ? result : result.slice(random, random + 6);
-
-    setScenicSpot(scenicSpots);
-  }
-
   function goScenicSpot() {
 
   }
 
   useEffect(() => { 
+    async function getScenicSpot() {
+      const params = generateParams({
+        $top: 6,
+        $filter: "Picture/PictureUrl1 ne null and city ne null and endswith(ScenicSpotID,'000001')",
+      });
+      const result = await ajax.get(`/v2/Tourism/ScenicSpot?${params}`);
+  
+      setScenicSpot(result);
+    }
+  
     getScenicSpot();
   }, []);
 

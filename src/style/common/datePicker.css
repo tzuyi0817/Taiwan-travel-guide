@@ -1,0 +1,23 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  .react-datepicker {
+    .react-datepicker {
+      &__header {
+        @apply bg-white border-b-0;
+      }
+      &__triangle {
+        @apply hidden;
+      }
+      &__day-name {
+        @apply text-[#6E7781];
+      }
+      &__day--selected {
+        @apply bg-secondary-dark rounded-full;
+      }
+      &__day--outside-month {
+        @apply text-[#6E7781];
+      }
+    }
+  }
+}

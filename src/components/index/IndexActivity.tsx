@@ -4,25 +4,25 @@ import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
 import type { Activity } from '@/types/activity';
 
+function formatTime(time: string) {
+  return new Date(time).toLocaleDateString();
+}
+
 function IndexActivity() {
   const [activity, setActivity] = useState<Activity[]>([]);
 
-  async function getActivity() {
-    const params = generateParams({
-      $top: 4,
-      $orderby: 'StartTime desc',
-      $filter: 'Picture/PictureUrl1 ne null',
-    });
-    const result = await ajax.get(`/v2/Tourism/Activity?${params}`);
-
-    setActivity(result);
-  }
-
-  function formatTime(time: string) {
-    return new Date(time).toLocaleDateString();
-  }
-
   useEffect(() => {
+    async function getActivity() {
+      const params = generateParams({
+        $top: 4,
+        $orderby: 'StartTime desc',
+        $filter: 'Picture/PictureUrl1 ne null',
+      });
+      const result = await ajax.get(`/v2/Tourism/Activity?${params}`);
+  
+      setActivity(result);
+    }
+
     getActivity();
   }, []);
 

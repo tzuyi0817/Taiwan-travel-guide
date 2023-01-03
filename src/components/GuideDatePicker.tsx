@@ -7,7 +7,7 @@ const CustomInput = forwardRef(({ value, onClick }, ref: React.LegacyRef<HTMLInp
   <>
     <input
       type="text"
-      className="input bg-white text-secondary placeholder:text-secondary relative"
+      className="input bg-white text-secondary placeholder:text-secondary relative mt-2"
       onClick={onClick}
       placeholder="選擇日期"
       value={value}
