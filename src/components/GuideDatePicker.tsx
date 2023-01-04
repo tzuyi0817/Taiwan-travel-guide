@@ -1,6 +1,11 @@
-import { useState, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
+interface Props {
+  selected?: Date;
+  onChange(date: Date | null, event: React.SyntheticEvent<any, Event> | undefined): void
+}
 
 // @ts-ignore
 const CustomInput = forwardRef(({ value, onClick }, ref: React.LegacyRef<HTMLInputElement>) => (
@@ -12,18 +17,16 @@ const CustomInput = forwardRef(({ value, onClick }, ref: React.LegacyRef<HTMLInp
       placeholder="選擇日期"
       value={value}
       ref={ref}
+      readOnly
     />
     <img src="/src/assets/icon/calendar.png" alt="" className="absolute top-1/2 right-6 -translate-y-1/2" />
   </>
 ));
 
-function GuideDatePicker() {
-  const [startDate, setStartDate] = useState(new Date());
-
+function GuideDatePicker(props: Props) {
   return (
     <DatePicker
-      selected={startDate}
-      onChange={(date: Date) => setStartDate(date)}
+      {...props}
       customInput={<CustomInput />}
       dateFormat="yyyy/MM/dd"
     />

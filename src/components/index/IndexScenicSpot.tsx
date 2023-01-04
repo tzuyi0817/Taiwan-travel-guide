@@ -33,7 +33,7 @@ function IndexScenicSpot() {
           const { ScenicSpotID, Picture , City, ScenicSpotName } = item;
 
           return (
-            <li key={ScenicSpotID}>
+            <li key={ScenicSpotID} className="picture_scale">
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>

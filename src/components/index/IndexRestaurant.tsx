@@ -33,7 +33,7 @@ function IndexRestaurant() {
           const { RestaurantID, Picture , City, RestaurantName } = item;
 
           return (
-            <li key={RestaurantID}>
+            <li key={RestaurantID} className="picture_scale">
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>

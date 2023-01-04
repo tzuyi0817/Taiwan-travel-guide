@@ -38,7 +38,7 @@ function IndexActivity() {
           const { ActivityID, Picture, StartTime, EndTime, ActivityName, City } = item;
 
           return (
-            <li key={ActivityID} className="index_activity">
+            <li key={ActivityID} className="index_activity picture_scale">
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>

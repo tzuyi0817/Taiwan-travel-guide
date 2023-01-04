@@ -11,6 +11,12 @@ interface Props {
 
 function GuideSearch({ type }: Props) {
   const [selectedOption, setSelectedOption] = useState(CITY_OPTIONS[0]);
+  const [startDate, setStartDate] = useState(new Date());
+  const [keyword, setKeyword] = useState('');
+
+  function search() {
+    console.log(selectedOption, startDate, keyword);
+  }
 
   return (
     <div className="flex flex-col items-center">
@@ -19,9 +25,18 @@ function GuideSearch({ type }: Props) {
         onChange={(select: { value: string; label: string; }) => setSelectedOption(select)}
         options={CITY_OPTIONS}
       />
-      <GuideDatePicker />
-      <input type="text" className="input mt-2" placeholder={MENU_PLACEHOLDER[type]} />
-      <button className="btn mt-2">
+      <GuideDatePicker
+        selected={startDate}
+        onChange={(date: Date) => setStartDate(date)}
+      />
+      <input
+        type="text"
+        className="input mt-2"
+        placeholder={MENU_PLACEHOLDER[type]}
+        value={keyword}
+        onChange={(event) => setKeyword(event.target.value)}
+      />
+      <button className="btn mt-2" onClick={search}>
         <img src="/src/assets/icon/search.png" alt="" /> 搜尋
       </button>
     </div>

@@ -10,7 +10,7 @@ function GuideSelect(props: Props) {
   return (
     <Select
       className="w-full max-w-[350px]"
-      { ...props }
+      {...props}
       theme={(theme) => ({
         ...theme,
         colors: {

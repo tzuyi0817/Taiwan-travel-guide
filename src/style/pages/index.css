@@ -26,13 +26,7 @@
     &_activity {
       @apply flex my-4 items-center w-full cursor-pointer;
       .picture {
-        @apply max-w-[90px] rounded-lg overflow-hidden;
-        img {
-          @apply transition-transform;
-        }
-      }
-      &:hover > .picture > img {
-        @apply scale-110;
+        @apply max-w-[90px] rounded-lg;
       }
     }
   }

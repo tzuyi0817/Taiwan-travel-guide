@@ -1,0 +1,16 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  .picture {
+    @apply overflow-hidden;
+    img {
+      @apply transition-transform h-full w-full;
+    }
+  }
+  .picture_scale {
+    @apply cursor-pointer;
+    &:hover > .picture > img {
+      @apply scale-110;
+    }
+  }
+}
