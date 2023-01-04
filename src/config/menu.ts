@@ -17,3 +17,15 @@ export const MENU_PLACEHOLDER = {
   activity: '想找有趣的？請輸入關鍵字',
   restaurant: '你想吃什麼？請輸入關鍵字',
 };
+
+export const MENU_NAME = {
+  scenicSpot: 'ScenicSpotName',
+  activity: 'ActivityName',
+  restaurant: 'RestaurantName',
+} as const;
+
+export const MENU_ID = {
+  scenicSpot: 'ScenicSpotID',
+  activity: 'ActivityID',
+  restaurant: 'RestaurantID',
+} as const;
