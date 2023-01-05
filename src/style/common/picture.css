@@ -3,13 +3,13 @@
 @layer components {
   .picture {
     @apply overflow-hidden;
-    img {
-      @apply transition-transform h-full w-full;
+    img:not(.icon) {
+      @apply h-full w-full transition-transform duration-300;
     }
   }
   .picture_scale {
     @apply cursor-pointer;
-    &:hover > .picture > img {
+    &:hover > .picture > img:not(.icon) {
       @apply scale-110;
     }
   }

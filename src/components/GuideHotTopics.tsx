@@ -1,12 +1,19 @@
-import { TOPICS_MAP } from '@/config/hotTopics';
+import { TOPICS_MAP, TOPICS_CLASS } from '@/config/hotTopics';
 import type { MenuKey } from '@/types/menu';
 
 interface Props {
   type: MenuKey;
+  setTopics: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function GuideHotTopics({ type }: Props) {
+function GuideHotTopics({ type, setTopics }: Props) {
   const topics = TOPICS_MAP[type];
+
+  function selectTopics(name: string) {
+    const filterClass = TOPICS_CLASS[type].map(key => `${key} eq '${name}'`).join(' or ');
+
+    setTopics(`(${filterClass})`);
+  }
 
   return (
     <div className="my-6">
@@ -14,7 +21,7 @@ function GuideHotTopics({ type }: Props) {
       <ul className="flex flex-wrap gap-3">
         {topics.map(({ id, name, image }) => {
           return (
-            <li key={id} className="picture_scale w-[calc(50%-6px)]">
+            <li key={id} className="picture_scale w-[calc(50%-6px)]" onClick={() => selectTopics(name)}>
               <div className="picture rounded-2xl relative">
                 <img src={image} alt="" />
                 <p className="middle text-white whitespace-nowrap">{name}</p>

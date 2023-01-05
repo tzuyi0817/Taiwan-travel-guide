@@ -24,4 +24,10 @@ export const TOPICS_MAP = {
     { id: 5, name: '伴手禮', image: '/src/assets/images/restaurant5.png' },
     { id: 6, name: '素食', image: '/src/assets/images/restaurant6.png' },
   ],
-}
+};
+
+export const TOPICS_CLASS = {
+  scenicSpot: ['Class1', 'Class2', 'Class3'],
+  activity: ['Class1', 'Class2'],
+  restaurant: ['Class'],
+};

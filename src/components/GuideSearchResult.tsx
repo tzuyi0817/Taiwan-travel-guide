@@ -11,11 +11,11 @@ import type { Restaurant } from '@/types/restaurant';
 import type { Activity } from '@/types/activity';
 
 interface Props {
-  search: string;
+  filter: string;
   type: MenuKey;
 }
 
-function GuideSearchResult({ search, type }: Props) {
+function GuideSearchResult({ filter, type }: Props) {
   const [searchList, setSearchList] = useState<Array<ScenicSpot & Restaurant & Activity>>([]);
   const isMounted = useRef(false);
   const observer = useIntersectionObserver(onImageInView, {});
@@ -29,7 +29,7 @@ function GuideSearchResult({ search, type }: Props) {
     }
     async function getSearchList() {
       const params = generateParams({
-        $filter: search,
+        $filter: filter,
       });
       const searchType = type.replace(/^./, type[0].toUpperCase());
       const result = await ajax.get(`/v2/Tourism/${searchType}?${params}`);
@@ -38,7 +38,7 @@ function GuideSearchResult({ search, type }: Props) {
     }
 
     getSearchList();
-  }, [search]);
+  }, [filter]);
 
   return (
     <div className="my-6">
@@ -49,24 +49,31 @@ function GuideSearchResult({ search, type }: Props) {
         </p>
       </div>
       <ul>
-        {searchList.map(item => {
-          const { Picture, City } = item;
+        {searchList.length
+          ? searchList.map(item => {
+            const { Picture, City } = item;
 
-          return (
-            <li key={item[id]} className="picture_scale flex flex-col gap-1 mb-5">
-              <div className="picture h-[160px] rounded-[20px] items-center justify-center bg-secondary/40">
-                {Picture.PictureUrl1 
-                  ? <LazyImage src={Picture.PictureUrl1} alt={Picture.PictureDescription1} observer={observer} />
-                  : <img src="/src/assets/icon/image.png" alt="" />
-                }
-              </div>
-              <p className="text-lg font-bold ellipsis">{item[name]}</p>
-              <div className="text-[#646464] flex items-center gap-1">
-                <img src="/src/assets/icon/location-base.png" alt="" />{City}
-              </div>
+            return (
+              <li key={item[id]} className="picture_scale flex flex-col gap-1 mb-5">
+                <div className="picture h-[160px] rounded-[20px] flex items-center justify-center bg-secondary/40">
+                  {Picture.PictureUrl1 
+                    ? <LazyImage src={Picture.PictureUrl1} alt={Picture.PictureDescription1} observer={observer} />
+                    : <img src="/src/assets/icon/image.png" alt="" className="icon" />
+                  }
+                </div>
+                <p className="text-lg font-bold ellipsis">{item[name]}</p>
+                <div className="text-[#646464] flex items-center gap-1">
+                  <img src="/src/assets/icon/location-base.png" alt="" />{City ?? '未提供城市'}
+                </div>
+              </li>
+            )
+          })
+          : <li className="flex flex-col justify-center items-center mt-16">
+              <img src="/src/assets/icon/nofound.png" alt="" className="mb-4" />
+              <p className="text-secondary text-xl font-bold mb-1">目前查無資料</p>
+              <p className="text-secondary text-xl font-bold">請重新搜尋</p>
             </li>
-          )
-        })}
+        }
       </ul>
     </div>
   )
