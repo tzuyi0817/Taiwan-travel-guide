@@ -4,7 +4,7 @@
   .picture {
     @apply overflow-hidden;
     img:not(.icon) {
-      @apply h-full w-full transition-transform duration-300;
+      @apply h-full w-full transition-transform duration-300 object-cover;
     }
   }
   .picture_scale {

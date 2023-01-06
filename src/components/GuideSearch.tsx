@@ -18,9 +18,10 @@ function GuideSearch({ type, setSearch }: Props) {
 
   function search() {
     const name = keyword ? `contains(${MENU_NAME[type]}, '${keyword}')`: '';
-    const startTime = isActivity ? `date(StartTime) eq ${startDate.toISOString().slice(0, 10)}` : '';
+    const date = startDate.toISOString().slice(0, 10);
+    const time = isActivity ? `date(StartTime) le ${date} and date(EndTime) ge ${date}` : '';
     const city = selectedOption.value ? `City eq '${selectedOption.value}'` : '';
-    const filter = [name, startTime, city].filter(Boolean).join('and ');
+    const filter = [name, time, city].filter(Boolean).join(' and ');
 
     setSearch(filter);
   }

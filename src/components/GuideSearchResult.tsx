@@ -24,6 +24,10 @@ function GuideSearchResult({ filter, type }: Props) {
   const id = MENU_ID[type];
   const name = MENU_NAME[type];
 
+  function goDetailPage(item: ScenicSpot & Restaurant & Activity) {
+    console.log(item);
+  }
+
   useEffect(() => {
     if (!isMounted.current) {
       isMounted.current = true;
@@ -60,7 +64,7 @@ function GuideSearchResult({ filter, type }: Props) {
               const { Picture, City } = item;
   
               return (
-                <li key={item[id]} className="picture_scale flex flex-col gap-1 mb-5">
+                <li key={item[id]} className="picture_scale flex flex-col gap-1 mb-5" onClick={() => goDetailPage(item)}>
                   <div className="picture h-[160px] rounded-[20px] flex items-center justify-center bg-secondary/40">
                     {Picture.PictureUrl1 
                       ? <LazyImage src={Picture.PictureUrl1} alt={Picture.PictureDescription1} observer={observer} />
