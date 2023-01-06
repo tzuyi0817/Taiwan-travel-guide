@@ -9,11 +9,16 @@ function ScenicSpot() {
   const [topics, setTopics] = useState('');
   const filter = useMemo(() => { 
     return [search, topics].filter(Boolean).join(' and ');
-  }, [search, topics])
+  }, [search, topics]);
+
+  function clearFilter() {
+    setSearch('');
+    setTopics('');
+  }
 
   return (
     <>
-      <GuideCrumbs />
+      <GuideCrumbs onCrumbs={clearFilter} />
       <GuideSearch type="scenicSpot" setSearch={setSearch} />
       {filter.length 
         ? <GuideSearchResult filter={filter} type="scenicSpot" /> 

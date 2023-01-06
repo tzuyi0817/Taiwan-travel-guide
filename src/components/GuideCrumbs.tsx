@@ -4,6 +4,10 @@ import tw from 'tailwind-styled-components';
 import { MENU_MAP } from '@/config/menu';
 import type { MenuKey } from '@/types/menu';
 
+interface Props {
+  onCrumbs?: () => void;
+}
+
 const Crumbs = tw.div`
   text-secondary-light
   text-xs
@@ -11,7 +15,7 @@ const Crumbs = tw.div`
   mb-4
 `;
 
-function GuideCrumbs() {
+function GuideCrumbs({ onCrumbs }: Props) {
   const { pathname } = useLocation();
   const crumbs = pathname.split('/');
 
@@ -28,7 +32,9 @@ function GuideCrumbs() {
       {crumbs.map((crumb, index) => {
         return (
           <Fragment key={index}>
-            <Link to={generateUrl(index)} className="last:text-[#646464]">{transformName(crumb)}</Link> 
+            <Link to={generateUrl(index)} className="last:text-[#646464]" onClick={onCrumbs}>
+              {transformName(crumb)}
+            </Link> 
             {index !== crumbs.length - 1 && <span className="px-1">/</span>}
           </Fragment>
         )

@@ -13,9 +13,11 @@ function IndexCarousel() {
 
   useEffect(() => { 
     async function getScenicSpot() {
+      const sample = ['01', '10', '11', '12', '14', '15', '16', '27', '28', '32'];
+      const random = Math.random() * 10 | 0;
       const params = generateParams({
         $top: 6,
-        $filter: "Picture/PictureUrl1 ne null and city ne null and endswith(ScenicSpotID,'000001')",
+        $filter: `Picture/PictureUrl1 ne null and city ne null and endswith(ScenicSpotID,'0000${sample[random]}')`,
       });
       const result = await ajax.get(`/v2/Tourism/ScenicSpot?${params}`);
   

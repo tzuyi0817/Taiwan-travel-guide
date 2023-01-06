@@ -9,9 +9,11 @@ function IndexRestaurant() {
 
   useEffect(() => {
     async function getRestaurant() {
+      const sample = [5, 6, 9, 13, 15, 16, 18, 19, 20, 21];
+      const random = Math.random() * 10 | 0;
       const params = generateParams({
         $top: 4,
-        $filter: 'Picture/PictureUrl1 ne null and city ne null',
+        $filter: `Picture/PictureUrl1 ne null and city ne null and endswith(RestaurantID,'0000${sample[random]}')`,
       });
       const result = await ajax.get(`/v2/Tourism/Restaurant?${params}`);
   

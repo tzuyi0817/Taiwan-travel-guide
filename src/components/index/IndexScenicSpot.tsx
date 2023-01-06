@@ -8,9 +8,10 @@ function IndexScenicSpot() {
   const [scenicSpot, setScenicSpot] = useState<ScenicSpot[]>([]);
 
   async function getScenicSpot() {
+    const random = Math.random() * 10 | 0 + 1;
     const params = generateParams({
       $top: 4,
-      $filter: 'Picture/PictureUrl1 ne null and city ne null',
+      $filter: `Picture/PictureUrl1 ne null and city ne null and endswith(ScenicSpotID,'0000${random}')`,
     });
     const result = await ajax.get(`/v2/Tourism/ScenicSpot?${params}`);
 

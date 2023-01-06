@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
+import Loading from '@/components/common/Loading';
 
 const Index = lazy(() => import('@/pages/Index'));
 const ScenicSpot = lazy(() => import('@/pages/ScenicSpot'));
@@ -15,7 +16,7 @@ function Routes() {
   const elements = useRoutes(ROUTE_CONFIG);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       {elements}
     </Suspense>
   )

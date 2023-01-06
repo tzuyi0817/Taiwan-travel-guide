@@ -13,10 +13,11 @@ function IndexActivity() {
 
   useEffect(() => {
     async function getActivity() {
+      const date = new Date().toISOString().slice(0, 10);
       const params = generateParams({
         $top: 4,
-        $orderby: 'StartTime desc',
-        $filter: 'Picture/PictureUrl1 ne null',
+        $orderby: 'StartTime asc',
+        $filter: `Picture/PictureUrl1 ne null and date(StartTime) ge ${date}`,
       });
       const result = await ajax.get(`/v2/Tourism/Activity?${params}`);
   
