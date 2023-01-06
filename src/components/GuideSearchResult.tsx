@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
 import { MENU_ID, MENU_NAME } from '@/config/menu';
@@ -21,11 +23,12 @@ function GuideSearchResult({ filter, type }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const isMounted = useRef(false);
   const observer = useIntersectionObserver(onImageInView, {});
+  const dispatch = useDispatch();
   const id = MENU_ID[type];
   const name = MENU_NAME[type];
 
   function goDetailPage(item: ScenicSpot & Restaurant & Activity) {
-    console.log(item);
+    dispatch(guideActions.updateGuide(item));
   }
 
   useEffect(() => {

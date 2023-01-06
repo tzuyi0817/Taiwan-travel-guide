@@ -118,6 +118,7 @@ src/
 - react-responsive-carousel
 - react-datepicker
 - redux
+- redux-persist
 - typescript
 - tailwindcss
 - vite
