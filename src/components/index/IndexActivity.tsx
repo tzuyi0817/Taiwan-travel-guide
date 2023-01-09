@@ -29,7 +29,7 @@ function IndexActivity() {
 
   return (
     <div>
-      <div className="index_caption">
+      <div className="caption">
         <h2>近期活動</h2>
         <Link to="/">查看更多活動</Link>
       </div>

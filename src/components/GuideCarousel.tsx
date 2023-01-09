@@ -22,10 +22,11 @@ const ArrowBtn = tw.button`
 interface Props {
   onClickItem?: ((index: number, item: React.ReactNode) => void) | undefined;
   children: React.ReactChild[] | undefined;
-  className: string;
+  className?: string;
+  showIndicators?: boolean;
 }
 
-function GuideCarousel({ onClickItem, children, className }: Props) {
+function GuideCarousel({ onClickItem, children, className = '', showIndicators }: Props) {
   return (
     <Carousel
       showArrows={true}
@@ -33,6 +34,7 @@ function GuideCarousel({ onClickItem, children, className }: Props) {
       autoPlay={true}
       showStatus={false}
       infiniteLoop={true}
+      showIndicators={showIndicators}
       onClickItem={onClickItem}
       className={`carousel ${className}`}
       renderArrowPrev={(onClickHandler, hasPrev, label) =>

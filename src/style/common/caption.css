@@ -1,0 +1,24 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  .caption {
+    @apply flex justify-between items-center mt-8;
+    a {
+      @apply
+      text-link 
+      relative
+      pr-3
+      after:content-[""]
+      after:absolute
+      after:top-1/2
+      after:right-0 
+      after:-translate-y-1/2
+      after:w-2
+      after:h-2
+      after:border-r-2
+      after:border-t-2
+      after:rotate-45
+      after:border-link;
+    }
+  }
+}

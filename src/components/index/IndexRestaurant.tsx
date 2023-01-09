@@ -25,7 +25,7 @@ function IndexRestaurant() {
 
   return (
     <div>
-      <div className="index_caption">
+      <div className="caption">
         <h2>一再回訪美食</h2>
         <Link to="/">查看更多美食</Link>
       </div>

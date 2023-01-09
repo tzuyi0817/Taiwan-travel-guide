@@ -20,4 +20,8 @@
   h2 {
     @apply text-2xl;
   }
+
+  a {
+    @apply break-words text-secondary-light;
+  }
 }

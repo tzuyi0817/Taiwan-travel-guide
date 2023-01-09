@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/hooks/useRedux';
 import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
@@ -23,12 +24,14 @@ function GuideSearchResult({ filter, type }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const isMounted = useRef(false);
   const observer = useIntersectionObserver(onImageInView, {});
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const id = MENU_ID[type];
   const name = MENU_NAME[type];
 
   function goDetailPage(item: ScenicSpot & Restaurant & Activity) {
     dispatch(guideActions.updateGuide(item));
+    navigate(`/${type}/${item[name]}`);
   }
 
   useEffect(() => {

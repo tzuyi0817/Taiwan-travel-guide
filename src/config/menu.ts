@@ -29,3 +29,9 @@ export const MENU_ID = {
   activity: 'ActivityID',
   restaurant: 'RestaurantID',
 } as const;
+
+export const MENU_MORE = {
+  scenicSpot: '查看更多景點',
+  activity: '查看更多活動',
+  restaurant: '查看更多美食',
+} as const;

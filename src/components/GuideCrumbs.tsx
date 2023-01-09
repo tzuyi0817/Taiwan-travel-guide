@@ -24,7 +24,7 @@ function GuideCrumbs({ onCrumbs }: Props) {
   }
 
   function transformName(crumb: string) {
-    return (MENU_MAP[crumb as MenuKey] ?? crumb) || '首頁';
+    return (MENU_MAP[crumb as MenuKey] ?? decodeURIComponent(crumb)) || '首頁';
   }
 
   return (

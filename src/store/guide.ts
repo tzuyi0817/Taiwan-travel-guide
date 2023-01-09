@@ -4,11 +4,11 @@ import type { Restaurant } from '@/types/restaurant';
 import type { Activity } from '@/types/activity';
 
 interface State {
-  guide: (ScenicSpot & Restaurant & Activity) | {}
+  currentSelect: (ScenicSpot & Restaurant & Activity) | null;
 }
 
 const initialGuideSate: State = {
-  guide: {},
+  currentSelect: null,
 };
 
 const guideSlice = createSlice({
@@ -16,7 +16,7 @@ const guideSlice = createSlice({
   initialState: initialGuideSate,
   reducers: {
     updateGuide(state, action: PayloadAction<ScenicSpot & Restaurant & Activity>) {
-      state.guide = action.payload;
+      state.currentSelect = action.payload;
     }
   }
 });

@@ -24,7 +24,7 @@ function IndexScenicSpot() {
 
   return (
     <div>
-      <div className="index_caption">
+      <div className="caption">
         <h2>熱門打卡景點</h2>
         <Link to="/">查看更多景點</Link>
       </div>
