@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/hooks/useRedux';
+import { guideActions } from '@/store/guide';
 import GuideCarousel from '@/components/GuideCarousel';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
@@ -6,9 +9,14 @@ import type { ScenicSpot } from '@/types/scenicSpot';
 
 function IndexCarousel() {
   const [scenicSpot, setScenicSpot] = useState<ScenicSpot[]>([]);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  function goScenicSpot() {
+  function goScenicSpot(index: number) {
+    const select = scenicSpot[index];
 
+    dispatch(guideActions.updateGuide(select));
+    navigate(`/scenicSpot/${select.ScenicSpotName}`);
   }
 
   useEffect(() => { 

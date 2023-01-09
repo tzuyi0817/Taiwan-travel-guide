@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import GuideSelect from '@/components/GuideSelect';
 import GuideDatePicker from '@/components/GuideDatePicker';
 import { CITY_OPTIONS } from '@/config/city';
@@ -14,10 +15,11 @@ function GuideSearch({ type, setSearch }: Props) {
   const [selectedOption, setSelectedOption] = useState(CITY_OPTIONS[0]);
   const [startDate, setStartDate] = useState(new Date());
   const [keyword, setKeyword] = useState('');
+  const { search: query } = useLocation();
   const isActivity = type === 'activity';
 
-  function search() {
-    const name = keyword ? `contains(${MENU_NAME[type]}, '${keyword}')`: '';
+  function search(query: string) {
+    const name = query ? `contains(${MENU_NAME[type]}, '${query}')`: '';
     const date = startDate.toISOString().slice(0, 10);
     const time = isActivity ? `date(StartTime) le ${date} and date(EndTime) ge ${date}` : '';
     const city = selectedOption.value ? `City eq '${selectedOption.value}'` : '';
@@ -25,6 +27,14 @@ function GuideSearch({ type, setSearch }: Props) {
 
     setSearch(filter);
   }
+
+  useEffect(() => {
+    if (!query) return;
+    const searchQuery = decodeURIComponent(query).replace('?', '');
+
+    setKeyword(searchQuery);
+    search(searchQuery);
+  }, []);
 
   return (
     <div className="flex flex-col items-center">
@@ -44,7 +54,7 @@ function GuideSearch({ type, setSearch }: Props) {
         value={keyword}
         onChange={(event) => setKeyword(event.target.value)}
       />
-      <button className="btn mt-2" onClick={search}>
+      <button className="btn mt-2" onClick={() => search(keyword)}>
         <img src="/src/assets/icon/search.png" alt="" /> 搜尋
       </button>
     </div>
