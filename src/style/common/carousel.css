@@ -2,12 +2,12 @@
 
 @layer components {
   .carousel {
-    @apply w-[90%] max-w-[350px] mx-auto md:max-w-[1110px];
+    @apply w-[90%] max-w-[350px] mx-auto cursor-pointer md:max-w-none;
     &_item {
       @apply relative;
     }
     &_image {
-      @apply w-full h-[185px] md:h-[400px] object-cover flex justify-center items-center;
+      @apply w-full h-[185px] md:h-[25vw] object-cover flex justify-center items-center;
       img {
         @apply max-w-[50px] md:max-w-[90px];
       }

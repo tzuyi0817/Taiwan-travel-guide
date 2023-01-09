@@ -43,7 +43,7 @@ function IndexActivity() {
         <Link to="/activity">查看更多活動</Link>
       </div>
 
-      <ul>
+      <ul className="md:grid md:grid-cols-2 md:gap-x-8 md:pb-4">
         {activity.map(item => {
           const { ActivityID, Picture, StartTime, EndTime, ActivityName, City } = item;
 
@@ -52,10 +52,14 @@ function IndexActivity() {
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>
-              <div className="ml-4 w-[calc(100%-106px)]">
-                <p className="text-xs text-[#646464]">{`${formatTime(StartTime)} ~ ${formatTime(EndTime)}`}</p>
-                <p className="font-bold ellipsis">{ActivityName}</p>
-                <p className="text-xs text-[#646464]">{City}</p>
+              <div className="ml-4 w-[calc(100%-106px)] h-full md:flex md:flex-col md:justify-around">
+                <div>
+                  <p className="text-xs text-[#646464] md:text-base">{`${formatTime(StartTime)} ~ ${formatTime(EndTime)}`}</p>
+                  <p className="font-bold ellipsis md:text-[22px]">{ActivityName}</p>
+                </div>
+                <p className="text-xs text-[#646464] flex gap-1 items-center md:text-base">
+                  <img src="/src/assets/icon/location-base.png" alt="" className="hidden md:block" />{City}
+                </p>
               </div>
             </li>
           )

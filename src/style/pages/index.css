@@ -3,30 +3,30 @@
 
 @layer components {
   .index {
-    &_caption {
-      @apply flex justify-between items-center mt-8;
-      a {
-        @apply
-        text-link 
-        relative
-        pr-3
-        after:content-[""]
-        after:absolute
-        after:top-1/2
-        after:right-0 
-        after:-translate-y-1/2
-        after:w-2
-        after:h-2
-        after:border-r-2
-        after:border-t-2
-        after:rotate-45
-        after:border-link;
-      }
-    }
     &_activity {
-      @apply flex my-4 items-center w-full cursor-pointer;
+      @apply
+      flex
+      my-4
+      items-center
+      w-full
+      cursor-pointer
+      md:bg-[#F9F9F9]
+      md:rounded-xl
+      md:mb-0
+      md:border-[1px]
+      md:border-[#E5E5E5]
+      md:gap-3;
       .picture {
-        @apply max-w-[90px] w-[90px] h-[62px] rounded-lg;
+        @apply
+        max-w-[90px]
+        w-[90px]
+        h-[62px]
+        rounded-lg
+        md:max-w-[160px]
+        md:min-w-[160px]
+        md:h-[160px]
+        md:rounded-l-xl
+        md:rounded-r-none;
       }
     }
   }

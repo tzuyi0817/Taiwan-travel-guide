@@ -11,6 +11,7 @@
     w-full
     max-w-[350px]
     bg-[#F9F9F9]
-    focus:outline-primary;
+    focus:outline-primary
+    md:min-w-[350px];
   }
 }

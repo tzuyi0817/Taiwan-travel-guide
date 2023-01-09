@@ -10,15 +10,15 @@
   }
 
   #root {
-    @apply py-16 md:pt-20 w-[90%] max-w-[350px] mx-auto;
+    @apply py-16 w-[90%] max-w-[350px] mx-auto md:py-[140px] md:max-w-none;
   }
 
   h1 {
-    @apply text-[28px];
+    @apply text-[28px] md:text-5xl md:leading-[60px];
   }
 
   h2 {
-    @apply text-2xl;
+    @apply text-2xl md:text-4xl;
   }
 
   a {

@@ -29,7 +29,6 @@ function InformationMore() {
   useEffect(() => {
     async function getMore() {
       const filter = [
-        'Picture/PictureUrl1 ne null', 
         guide?.City ? `city eq '${guide.City}'` : '', 
         `${name} ne '${guide?.[name]}'`,
       ].filter(Boolean);
@@ -60,7 +59,7 @@ function InformationMore() {
 
           return (
             <li key={item[id]} className="picture_scale" onClick={() => goDetailPage(item)}>
-              <div className="picture">
+              <div className="picture flex items-center justify-center bg-secondary/40">
                 {Picture.PictureUrl1
                   ? <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
                   : <img src="/src/assets/icon/image.png" alt="" className="icon" />

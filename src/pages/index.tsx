@@ -8,8 +8,10 @@ import IndexRestaurant from '@/components/index/IndexRestaurant';
 function Index() {
   return (
     <>
-      <IndexTitle />
-      <IndexSearch />
+      <div className="md:flex md:justify-evenly">
+        <IndexTitle />
+        <IndexSearch />
+      </div>
       <IndexCarousel />
       <IndexActivity />
       <IndexScenicSpot />
