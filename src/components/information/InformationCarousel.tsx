@@ -7,7 +7,7 @@ type PictureUrl = 'PictureUrl1' | 'PictureUrl2' | 'PictureUrl3';
 function InformationCarousel() {
   const guide = useAppSelector(({ guide }) => guide.currentSelect);
   const pictures = useMemo(() => {
-    if (!guide) return [];
+    if (!guide || !guide?.Picture) return [];
     const { Picture } = guide;
     const images = (Object.keys(Picture) as PictureUrl[]).filter(key => key.includes('PictureUrl'));
 

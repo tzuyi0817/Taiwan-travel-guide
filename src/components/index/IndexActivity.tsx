@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/hooks/useRedux';
+import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
 import type { Activity } from '@/types/activity';
@@ -10,6 +12,13 @@ function formatTime(time: string) {
 
 function IndexActivity() {
   const [activity, setActivity] = useState<Activity[]>([]);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  function goDetailPage(item: Activity) {
+    dispatch(guideActions.updateGuide(item));
+    navigate(`/activity/${item.ActivityName}`);
+  }
 
   useEffect(() => {
     async function getActivity() {
@@ -31,7 +40,7 @@ function IndexActivity() {
     <div>
       <div className="caption">
         <h2>近期活動</h2>
-        <Link to="/">查看更多活動</Link>
+        <Link to="/activity">查看更多活動</Link>
       </div>
 
       <ul>
@@ -39,7 +48,7 @@ function IndexActivity() {
           const { ActivityID, Picture, StartTime, EndTime, ActivityName, City } = item;
 
           return (
-            <li key={ActivityID} className="index_activity picture_scale">
+            <li key={ActivityID} className="index_activity picture_scale" onClick={() => goDetailPage(item)}>
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>

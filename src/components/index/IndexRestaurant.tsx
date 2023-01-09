@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/hooks/useRedux';
+import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
 import type { Restaurant } from '@/types/restaurant';
 
 function IndexRestaurant() {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  function goDetailPage(item: Restaurant) {
+    dispatch(guideActions.updateGuide(item));
+    navigate(`/restaurant/${item.RestaurantName}`);
+  }
 
   useEffect(() => {
     async function getRestaurant() {
@@ -27,7 +36,7 @@ function IndexRestaurant() {
     <div>
       <div className="caption">
         <h2>一再回訪美食</h2>
-        <Link to="/">查看更多美食</Link>
+        <Link to="/restaurant">查看更多美食</Link>
       </div>
 
       <ul className="exhibit">
@@ -35,7 +44,7 @@ function IndexRestaurant() {
           const { RestaurantID, Picture , City, RestaurantName } = item;
 
           return (
-            <li key={RestaurantID} className="picture_scale">
+            <li key={RestaurantID} className="picture_scale" onClick={() => goDetailPage(item)}>
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>

@@ -9,6 +9,7 @@ import App from '@/App';
 import '@/style/index.css';
 import '@/style/tailwind.css';
 import generateToken from '@/utils/generateToken';
+import ScrollToTop from '@/hooks/useScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 const persistor = persistStore(store);
@@ -19,6 +20,7 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
+          <ScrollToTop />
           <App />
         </PersistGate>
       </Provider>

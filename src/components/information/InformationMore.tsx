@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useAppSelector } from '@/hooks/useRedux';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '@/hooks/useRedux';
+import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
 import { MENU_MORE, MENU_ID, MENU_NAME } from '@/config/menu';
@@ -12,10 +13,18 @@ import type { Activity } from '@/types/activity';
 function InformationMore() {
   const [mores, setMores] = useState<Array<ScenicSpot & Restaurant & Activity>>([]);
   const guide = useAppSelector(({ guide }) => guide.currentSelect);
-  const location = useLocation();
-  const type = location.pathname.split('/')[1] as MenuKey;
+  const { pathname } = useLocation();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const moreRef = useRef<HTMLUListElement | null>(null);
+  const type = pathname.split('/')[1] as MenuKey;
   const id = MENU_ID[type];
   const name = MENU_NAME[type];
+
+  function goDetailPage(item: ScenicSpot & Restaurant & Activity) {
+    dispatch(guideActions.updateGuide(item));
+    navigate(`/${type}/${item[name]}`);
+  }
 
   useEffect(() => {
     async function getMore() {
@@ -32,10 +41,11 @@ function InformationMore() {
       const result = await ajax.get(`/v2/Tourism/${searchType}?${params}`);
   
       setMores(result);
+      moreRef?.current?.scrollTo({ left: 0 });
     }
 
     getMore();
-  }, []);
+  }, [pathname]);
 
   return (
     <>
@@ -44,12 +54,12 @@ function InformationMore() {
         <Link to={`/${type}`}>{MENU_MORE[type]}</Link>
       </div>
 
-      <ul className="exhibit">
+      <ul className="exhibit" ref={moreRef}>
         {mores.map(item => {
           const { Picture , City } = item;
 
           return (
-            <li key={item[id]} className="picture_scale">
+            <li key={item[id]} className="picture_scale" onClick={() => goDetailPage(item)}>
               <div className="picture">
                 {Picture.PictureUrl1
                   ? <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />

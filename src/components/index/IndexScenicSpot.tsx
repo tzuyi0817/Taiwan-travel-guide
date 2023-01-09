@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/hooks/useRedux';
+import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
 import type { ScenicSpot } from '@/types/scenicSpot';
 
 function IndexScenicSpot() {
   const [scenicSpot, setScenicSpot] = useState<ScenicSpot[]>([]);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  function goDetailPage(item: ScenicSpot) {
+    dispatch(guideActions.updateGuide(item));
+    navigate(`/scenicSpot/${item.ScenicSpotName}`);
+  }
 
   async function getScenicSpot() {
     const random = Math.random() * 10 | 0 + 1;
@@ -26,7 +35,7 @@ function IndexScenicSpot() {
     <div>
       <div className="caption">
         <h2>熱門打卡景點</h2>
-        <Link to="/">查看更多景點</Link>
+        <Link to="/scenicSpot">查看更多景點</Link>
       </div>
 
       <ul className="exhibit">
@@ -34,7 +43,7 @@ function IndexScenicSpot() {
           const { ScenicSpotID, Picture , City, ScenicSpotName } = item;
 
           return (
-            <li key={ScenicSpotID} className="picture_scale">
+            <li key={ScenicSpotID} className="picture_scale" onClick={() => goDetailPage(item)}>
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>
