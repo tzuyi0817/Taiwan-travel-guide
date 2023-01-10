@@ -15,7 +15,7 @@ function InformationCarousel() {
   }, [guide]);
 
   return (
-    <div className="my-4">
+    <div className="my-4 md:my-8">
       {pictures.length 
         ? <GuideCarousel showIndicators={pictures.length > 1}>
             {pictures.map(picture => {

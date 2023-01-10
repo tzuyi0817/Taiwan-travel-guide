@@ -57,11 +57,13 @@ function GuideHeader() {
     <>
       {isOpenMenu && <div className="mask md:hidden"></div>}
       <Header className={ `${isOpenMenu ? 'w-[275px] justify-start' : 'w-full justify-center' } md:w-full justify-between` }>
-        <img
-          src="" 
-          alt="" 
-          className="content-[url(/src/assets/icon/Logo-mobile.png)] md:content-[url(/src/assets/icon/Logo-desktop.png)]"
-        />
+        <Link to="/">
+          <img
+            src="" 
+            alt="" 
+            className="content-[url(/src/assets/icon/Logo-mobile.png)] md:content-[url(/src/assets/icon/Logo-desktop.png)]"
+          />
+        </Link>
         <HeaderBtn onClick={() => toggleMenu(!isOpenMenu)}>
           <img src={isOpenMenu ? '/src/assets/icon/close.png' : '/src/assets/icon/menu.png'} alt="" />
         </HeaderBtn>

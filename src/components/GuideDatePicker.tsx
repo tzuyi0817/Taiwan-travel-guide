@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
 interface Props {
   selected?: Date;
@@ -12,7 +11,7 @@ const CustomInput = forwardRef(({ value, onClick }, ref: React.LegacyRef<HTMLInp
   <>
     <input
       type="text"
-      className="input bg-white text-secondary placeholder:text-secondary relative mt-2"
+      className="input bg-white text-secondary placeholder:text-secondary relative mt-2 md:mt-0"
       onClick={onClick}
       placeholder="選擇日期"
       value={value}
@@ -28,6 +27,7 @@ function GuideDatePicker(props: Props) {
     <DatePicker
       {...props}
       customInput={<CustomInput />}
+      wrapperClassName="datePicker"
       dateFormat="yyyy/MM/dd"
     />
   )

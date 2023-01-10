@@ -37,7 +37,7 @@ function GuideSearch({ type, setSearch }: Props) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center md:flex-row md:mt-10 md:mb-16">
       <GuideSelect
         defaultValue={selectedOption}
         onChange={(select: { value: string; label: string; }) => setSelectedOption(select)}
@@ -49,12 +49,12 @@ function GuideSearch({ type, setSearch }: Props) {
       />}
       <input
         type="text"
-        className="input mt-2"
+        className="input mt-2 md:mt-0 md:grow md:max-w-none md:mx-4"
         placeholder={MENU_PLACEHOLDER[type]}
         value={keyword}
         onChange={(event) => setKeyword(event.target.value)}
       />
-      <button className="btn mt-2" onClick={() => search(keyword)}>
+      <button className="btn mt-2 md:mt-0" onClick={() => search(keyword)}>
         <img src="/src/assets/icon/search.png" alt="" /> 搜尋
       </button>
     </div>

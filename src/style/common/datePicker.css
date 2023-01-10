@@ -1,6 +1,10 @@
 @import 'tailwindcss/components';
 
 @layer components {
+  .datePicker {
+    @apply w-[350px] md:ml-4;
+  }
+
   .react-datepicker {
     .react-datepicker {
       &__header {

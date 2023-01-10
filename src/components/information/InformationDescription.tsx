@@ -11,12 +11,12 @@ function InformationDescription() {
 
   return (
     <>
-      <h2 className="mb-2">{guide?.[MENU_NAME[type]]}</h2>
-      <ul className="flex gap-1 mb-4">
+      <h2 className="mb-2 md:mb-4">{guide?.[MENU_NAME[type]]}</h2>
+      <ul className="flex gap-1 mb-4 md:gap-2 md:mb-8">
         {classes.map(tag => <li className="badge" key={tag}># {tag}</li>)}
       </ul>
-      <p className="text-lg font-bold mb-2">活動介紹：</p>
-      <section className="mb-7">{guide?.DescriptionDetail ?? guide?.Description}</section>
+      <p className="text-lg font-bold mb-2 md:text-xl md:mb-3">活動介紹：</p>
+      <section className="mb-7 md:text-lg md:mb-16">{guide?.DescriptionDetail ?? guide?.Description}</section>
     </>
   )
 }

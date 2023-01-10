@@ -13,6 +13,7 @@ const Crumbs = tw.div`
   text-xs
   mt-6
   mb-4
+  md:text-base
 `;
 
 function GuideCrumbs({ onCrumbs }: Props) {

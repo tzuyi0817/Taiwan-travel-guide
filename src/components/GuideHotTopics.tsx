@@ -17,13 +17,13 @@ function GuideHotTopics({ type, setTopics }: Props) {
 
   return (
     <div className="my-6">
-      <h2 className="mb-4">熱門主題</h2>
-      <ul className="flex flex-wrap gap-3">
+      <h2 className="mb-4 md:mb-6">熱門主題</h2>
+      <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-[30px]">
         {topics.map(({ id, name, image }) => {
           return (
-            <li key={id} className="picture_scale w-[calc(50%-6px)]" onClick={() => selectTopics(name)}>
-              <div className="picture rounded-2xl relative">
-                <img src={image} alt="" />
+            <li key={id} className="picture_scale" onClick={() => selectTopics(name)}>
+              <div className="picture rounded-2xl relative md:rounded-[38px] md:h-[200px]">
+                <img src={image} alt="" className="object-cover" />
                 <p className="middle text-white whitespace-nowrap">{name}</p>
               </div>
             </li>

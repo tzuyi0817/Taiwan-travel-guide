@@ -6,6 +6,7 @@ import type { MenuKey } from '@/types/menu';
 const Title = tw.span`
   font-bold
   text-lg
+  md:text-xl
 `;
 
 function formatTime(time?: string) {
@@ -18,7 +19,7 @@ function InformationContent() {
   const type = location.pathname.split('/')[1] as MenuKey;
 
   return (
-    <section className="gap-2 flex flex-col">
+    <section className="gap-2 flex flex-col md:text-lg">
       {type === 'scenicSpot' && 
         <>
           <p><Title>開放時間：</Title>{guide?.OpenTime}</p>

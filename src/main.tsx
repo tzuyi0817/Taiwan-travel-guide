@@ -6,6 +6,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import store from '@/store';
 import App from '@/App';
+import 'react-datepicker/dist/react-datepicker.css';
 import '@/style/index.css';
 import '@/style/tailwind.css';
 import generateToken from '@/utils/generateToken';

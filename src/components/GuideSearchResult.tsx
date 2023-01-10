@@ -56,13 +56,13 @@ function GuideSearchResult({ filter, type }: Props) {
 
   return (
     <div className="my-6">
-      <div className="flex mb-4 items-end gap-2">
+      <div className="flex mb-4 items-end gap-2 md:mb-6">
         <h2>搜尋結果</h2>
-        <p className="text-sm text-[#646464]">
+        <p className="text-sm text-[#646464] md:text-lg">
           共有 <span className="text-[#BEA363] leading-6">{searchList.length}</span> 筆
         </p>
       </div>
-      <ul>
+      <ul className={`grid grid-cols-1 gap-5 md:grid-cols-${!isLoading && searchList.length ? '4' : '1'}`}>
         {isLoading 
           ? <Loading />
           : searchList.length
@@ -70,8 +70,8 @@ function GuideSearchResult({ filter, type }: Props) {
               const { Picture, City } = item;
   
               return (
-                <li key={item[id]} className="picture_scale flex flex-col gap-1 mb-5" onClick={() => goDetailPage(item)}>
-                  <div className="picture h-[160px] rounded-[20px] flex items-center justify-center bg-secondary/40">
+                <li key={item[id]} className="picture_scale flex flex-col gap-1" onClick={() => goDetailPage(item)}>
+                  <div className="picture h-[160px] rounded-[20px] flex items-center justify-center bg-secondary/40 md:h-[200px]">
                     {Picture.PictureUrl1 
                       ? <LazyImage src={Picture.PictureUrl1} alt={Picture.PictureDescription1} observer={observer} />
                       : <img src="/src/assets/icon/image.png" alt="" className="icon" />
