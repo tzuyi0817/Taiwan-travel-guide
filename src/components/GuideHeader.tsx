@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
 import { MENU_MAP } from '@/config/menu';
+import { createImageSrc } from '@/utils/images';
 import type { MenuKey } from '@/types/menu';
 
 const Header = tw.header`
@@ -65,7 +66,7 @@ function GuideHeader() {
           />
         </Link>
         <HeaderBtn onClick={() => toggleMenu(!isOpenMenu)}>
-          <img src={isOpenMenu ? '/src/assets/icon/close.png' : '/src/assets/icon/menu.png'} alt="" />
+          <img src={isOpenMenu ? createImageSrc('icon/close.png') : createImageSrc('icon/menu.png')} alt="" />
         </HeaderBtn>
 
         <Menu className={isOpenMenu ? 'block' : 'hidden md:relative' }>

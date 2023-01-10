@@ -1,3 +1,5 @@
+import { createImageSrc } from '@/utils/images';
+
 function IndexTitle() {
   return (
     <div className="text-center mt-2 mb-9 md:text-left">
@@ -6,8 +8,8 @@ function IndexTitle() {
       </h1>
       <h1>讓我們更親近這片土地</h1>
 
-      <div className="flex gap-1 mt-[14px] justify-center items-center">
-        <img src="/src/assets/icon/location.png" alt="" />
+      <div className="flex gap-1 mt-[14px] justify-center items-center md:justify-start">
+        <img src={createImageSrc('icon/location.png')} alt="" />
         <span className="text-sm text-[#646464] md:text-xl">台灣旅遊景點導覽 Taiwan Travel Guide</span>
       </div>
     </div>

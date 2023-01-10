@@ -1,6 +1,7 @@
 import { useMemo  } from 'react';
 import { useAppSelector } from '@/hooks/useRedux';
 import GuideCarousel from '@/components/GuideCarousel';
+import { createImageSrc } from '@/utils/images';
 
 type PictureUrl = 'PictureUrl1' | 'PictureUrl2' | 'PictureUrl3';
 
@@ -27,7 +28,7 @@ function InformationCarousel() {
             })}
           </GuideCarousel>
         : <div className="bg-secondary/40 flex items-center justify-center rounded-2xl w-full h-[185px] md:h-[400px]">
-            <img src="/src/assets/icon/image.png" alt="" className="icon" />
+            <img src={createImageSrc('icon/image.png')} alt="" className="icon" />
           </div>
       }
     </div>

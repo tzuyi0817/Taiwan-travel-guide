@@ -8,7 +8,7 @@ import { MENU_ID, MENU_NAME } from '@/config/menu';
 import LazyImage from '@/components/common/LazyImage';
 import Loading from '@/components/common/Loading';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import { onImageInView } from '@/utils/images';
+import { onImageInView, createImageSrc } from '@/utils/images';
 import type { MenuKey } from '@/types/menu';
 import type { ScenicSpot } from '@/types/scenicSpot';
 import type { Restaurant } from '@/types/restaurant';
@@ -74,18 +74,18 @@ function GuideSearchResult({ filter, type }: Props) {
                   <div className="picture h-[160px] rounded-[20px] flex items-center justify-center bg-secondary/40 md:h-[200px]">
                     {Picture.PictureUrl1 
                       ? <LazyImage src={Picture.PictureUrl1} alt={Picture.PictureDescription1} observer={observer} />
-                      : <img src="/src/assets/icon/image.png" alt="" className="icon" />
+                      : <img src={createImageSrc('icon/image.png')} alt="" className="icon" />
                     }
                   </div>
                   <p className="text-lg font-bold ellipsis">{item[name]}</p>
                   <div className="text-[#646464] flex items-center gap-1">
-                    <img src="/src/assets/icon/location-base.png" alt="" />{City ?? '未提供城市'}
+                    <img src={createImageSrc('icon/location-base.png')} alt="" />{City ?? '未提供城市'}
                   </div>
                 </li>
               )
             })
             : <li className="flex flex-col justify-center items-center mt-16">
-                <img src="/src/assets/icon/nofound.png" alt="" className="mb-4" />
+                <img src={createImageSrc('icon/nofound.png')} alt="" className="mb-4" />
                 <p className="text-secondary text-xl font-bold mb-1">目前查無資料</p>
                 <p className="text-secondary text-xl font-bold">請重新搜尋</p>
               </li>

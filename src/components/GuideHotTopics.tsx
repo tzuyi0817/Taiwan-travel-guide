@@ -1,4 +1,5 @@
 import { TOPICS_MAP, TOPICS_CLASS } from '@/config/hotTopics';
+import { createImageSrc } from '@/utils/images';
 import type { MenuKey } from '@/types/menu';
 
 interface Props {
@@ -23,7 +24,7 @@ function GuideHotTopics({ type, setTopics }: Props) {
           return (
             <li key={id} className="picture_scale" onClick={() => selectTopics(name)}>
               <div className="picture rounded-2xl relative md:rounded-[38px] md:h-[200px]">
-                <img src={image} alt="" className="object-cover" />
+                <img src={createImageSrc(image)} alt="" className="object-cover" />
                 <p className="middle text-white whitespace-nowrap">{name}</p>
               </div>
             </li>

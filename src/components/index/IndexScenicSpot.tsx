@@ -4,6 +4,7 @@ import { useAppDispatch } from '@/hooks/useRedux';
 import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
+import { createImageSrc } from '@/utils/images';
 import type { ScenicSpot } from '@/types/scenicSpot';
 
 function IndexScenicSpot() {
@@ -48,7 +49,7 @@ function IndexScenicSpot() {
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>
               <p className="name">{ScenicSpotName}</p>
-              <div className="city"><img src="/src/assets/icon/location-base.png" alt="" />{City}</div>
+              <div className="city"><img src={createImageSrc('icon/location-base.png')} alt="" />{City}</div>
             </li>
           )
         })}

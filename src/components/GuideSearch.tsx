@@ -4,6 +4,7 @@ import GuideSelect from '@/components/GuideSelect';
 import GuideDatePicker from '@/components/GuideDatePicker';
 import { CITY_OPTIONS } from '@/config/city';
 import { MENU_PLACEHOLDER, MENU_NAME } from '@/config/menu';
+import { createImageSrc } from '@/utils/images';
 import type { MenuKey } from '@/types/menu';
 
 interface Props {
@@ -55,7 +56,7 @@ function GuideSearch({ type, setSearch }: Props) {
         onChange={(event) => setKeyword(event.target.value)}
       />
       <button className="btn mt-2 md:mt-0" onClick={() => search(keyword)}>
-        <img src="/src/assets/icon/search.png" alt="" /> 搜尋
+        <img src={createImageSrc('icon/search.png')} alt="" /> 搜尋
       </button>
     </div>
   )

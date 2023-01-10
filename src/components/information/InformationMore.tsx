@@ -5,6 +5,7 @@ import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
 import { MENU_MORE, MENU_ID, MENU_NAME } from '@/config/menu';
+import { createImageSrc } from '@/utils/images';
 import type { MenuKey } from '@/types/menu';
 import type { ScenicSpot } from '@/types/scenicSpot';
 import type { Restaurant } from '@/types/restaurant';
@@ -62,11 +63,11 @@ function InformationMore() {
               <div className="picture flex items-center justify-center bg-secondary/40">
                 {Picture.PictureUrl1
                   ? <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
-                  : <img src="/src/assets/icon/image.png" alt="" className="icon" />
+                  : <img src={createImageSrc('icon/image.png')} alt="" className="icon" />
                 }
               </div>
               <p className="name">{item[name]}</p>
-              <div className="city"><img src="/src/assets/icon/location-base.png" alt="" />{City ?? '未提供城市'}</div>
+              <div className="city"><img src={createImageSrc('icon/location-base.png')} alt="" />{City ?? '未提供城市'}</div>
             </li>
           )
         })}

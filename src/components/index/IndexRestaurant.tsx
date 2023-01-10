@@ -4,6 +4,7 @@ import { useAppDispatch } from '@/hooks/useRedux';
 import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
+import { createImageSrc } from '@/utils/images';
 import type { Restaurant } from '@/types/restaurant';
 
 function IndexRestaurant() {
@@ -49,7 +50,7 @@ function IndexRestaurant() {
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>
               <p className="name">{RestaurantName}</p>
-              <div className="city"><img src="/src/assets/icon/location-base.png" alt="" />{City}</div>
+              <div className="city"><img src={createImageSrc('icon/location-base.png')} alt="" />{City}</div>
             </li>
           )
         })}

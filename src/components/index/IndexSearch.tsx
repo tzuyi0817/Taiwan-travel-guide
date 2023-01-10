@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GuideSelect from '@/components/GuideSelect';
 import { MENU_OPTIONS, MENU_PLACEHOLDER } from '@/config/menu';
+import { createImageSrc } from '@/utils/images';
 import type { MenuOption } from '@/types/menu';
 
 function IndexSearch() {
@@ -28,7 +29,7 @@ function IndexSearch() {
         onChange={(event) => setKeyword(event.target.value)}
       />
       <button className="btn" onClick={search}>
-        <img src="/src/assets/icon/search.png" alt="" /> 搜尋
+        <img src={createImageSrc('icon/search.png')} alt="" /> 搜尋
       </button>
     </div>
   )

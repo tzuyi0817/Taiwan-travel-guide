@@ -18,7 +18,7 @@
       @apply w-[220px] h-[160px] rounded-[20px] md:w-full md:h-[200px];
     }
     .name {
-      @apply text-lg font-bold mt-[6px] ellipsis max-w-[220px] md:text-[22px] md:mt-3;
+      @apply text-lg font-bold mt-[6px] ellipsis max-w-[220px] md:text-[22px] md:mt-3 md:max-w-full;
     }
     .city {
       @apply flex gap-1 items-center text-[#646464] md:mt-1;

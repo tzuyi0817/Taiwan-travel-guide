@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
+import { createImageSrc } from '@/utils/images';
 
 interface Props {
   selected?: Date;
@@ -18,7 +19,7 @@ const CustomInput = forwardRef(({ value, onClick }, ref: React.LegacyRef<HTMLInp
       ref={ref}
       readOnly
     />
-    <img src="/src/assets/icon/calendar.png" alt="" className="absolute top-1/2 right-6 -translate-y-1/2" />
+    <img src={createImageSrc('icon/calendar.png')} alt="" className="absolute top-1/2 right-6 -translate-y-1/2" />
   </>
 ));
 

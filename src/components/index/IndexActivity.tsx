@@ -4,6 +4,7 @@ import { useAppDispatch } from '@/hooks/useRedux';
 import { guideActions } from '@/store/guide';
 import ajax from '@/utils/ajax';
 import generateParams from '@/utils/generateParams';
+import { createImageSrc } from '@/utils/images';
 import type { Activity } from '@/types/activity';
 
 function formatTime(time: string) {
@@ -58,7 +59,7 @@ function IndexActivity() {
                   <p className="font-bold ellipsis md:text-[22px]">{ActivityName}</p>
                 </div>
                 <p className="text-xs text-[#646464] flex gap-1 items-center md:text-base">
-                  <img src="/src/assets/icon/location-base.png" alt="" className="hidden md:block" />{City}
+                  <img src={createImageSrc('icon/location-base.png')} alt="" className="hidden md:block" />{City}
                 </p>
               </div>
             </li>
