@@ -35,10 +35,10 @@ function GuideSearchResult({ filter, type }: Props) {
   }
 
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
+    // if (!isMounted.current) {
+    //   isMounted.current = true;
+    //   return;
+    // }
     async function getSearchList() {
       setIsLoading(true);
       const params = generateParams({
