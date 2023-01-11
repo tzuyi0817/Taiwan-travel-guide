@@ -22,7 +22,6 @@ interface Props {
 function GuideSearchResult({ filter, type }: Props) {
   const [searchList, setSearchList] = useState<Array<ScenicSpot & Restaurant & Activity>>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const isMounted = useRef(false);
   const observer = useIntersectionObserver(onImageInView, {});
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -35,10 +34,6 @@ function GuideSearchResult({ filter, type }: Props) {
   }
 
   useEffect(() => {
-    // if (!isMounted.current) {
-    //   isMounted.current = true;
-    //   return;
-    // }
     async function getSearchList() {
       setIsLoading(true);
       const params = generateParams({

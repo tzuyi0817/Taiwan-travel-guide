@@ -15,101 +15,91 @@ Clone this repository and install dependencies by running `pnpm`(Node.js version
 
 ## Project Files
 
-<!-- ```text
+```text
 src/
 ├── assets/
-│   ├── loading.gif
-│   ├── attached/*
-│   ├── bg/*
-│   ├── font/*
 │   ├── icon/*
-│   ├── logo/*
-│   └── role/*
+│   └── images/*
 ├── components/
-│   ├── circuit/
-│   │   ├── CircuitEe1.vue
-│   │   ├── CircuitEe2.vue
-│   │   ├── CircuitEe3.vue
-│   │   ├── CircuitEe4.vue
-│   │   ├── CircuitEe5.vue
-│   │   ├── CircuitProcess.vue
-│   │   └── CircuitSprint.vue
-│   ├── final/
-│   │   └── FinalDot.vue
-│   ├── inventory/
-│   │   ├── InventoryGg1.vue
-│   │   └── InventoryGg2.vue
-│   ├── plan/
-│   │   ├── PlanEe1.vue
-│   │   ├── PlanEe2.vue
-│   │   ├── PlanEe3.vue
-│   │   ├── PlanGg1.vue
-│   │   ├── PlanPo1.vue
-│   │   ├── PlanSm1.vue
-│   │   └── PlanSm2.vue
-│   ├── product/
-│   │   ├── ProductList.vue
-│   │   ├── ProductPo1.vue
-│   │   ├── ProductPo2.vue
-│   │   ├── ProductPo3.vue
-│   │   ├── ProductPo4.vue
-│   │   └── ProductPo5.vue
-│   ├── retro/
-│   │   ├── RetroGg1.vue
-│   │   ├── RetroGg2.vue
-│   │   └── RetroGg3.vue
-│   ├── Draggable.vue
-│   ├── ScrumBackground.vue
-│   ├── ScrumFooter.vue
-│   ├── ScrumLoading.vue
-│   ├── ScrumPo.vue
-│   ├── ScrumProgress.vue
-│   ├── ScrumSm.vue
-│   ├── ScrumTeam1.vue
-│   └── ScrumTeam2.vue
-└── hooks/
-│   ├── useBackground.ts
-│   ├── useDrag.ts
-│   └── useRedirect.ts
-└── pages/
-│   ├── Circuit.vue
-│   ├── Final.vue
-│   ├── Index.vue
-│   ├── Inventory.vue
-│   ├── Plan.vue
-│   ├── Product.vue
-│   └── Retro.vue
-└── router/
+│   ├── common/
+│   │   ├── LazyImage.tsx
+│   │   └── Loading.tsx
+│   ├── index/
+│   │   ├── IndexActivity.tsx
+│   │   ├── IndexCarousel.tsx
+│   │   ├── IndexRestaurant.tsx
+│   │   ├── IndexScenicSpot.tsx
+│   │   ├── IndexSearch.tsx
+│   │   └── IndexTitle.tsx
+│   ├── information/
+│   │   ├── InformationCarousel.tsx
+│   │   ├── InformationContent.tsx
+│   │   ├── InformationDescription.tsx
+│   │   ├── InformationLocation.tsx
+│   │   └── InformationMore.tsx
+│   ├── GuideCarousel.tsx
+│   ├── GuideCrumbs.tsx
+│   ├── GuideDatePicker.tsx
+│   ├── GuideFooter.tsx
+│   ├── GuideHeader.tsx
+│   ├── GuideHotTopics.tsx
+│   ├── GuideSearch.tsx
+│   ├── GuideSearchResult.tsx
+│   └── GuideSelect.tsx
+├── config/
+│   ├── city.ts
+│   ├── hotTopics.ts
+│   └── menu.ts
+├── hooks/
+│   ├── useIntersectionObserver.ts
+│   ├── useRedux.ts
+│   └── useScrollToTop.ts
+├── pages/
+│   ├── Activity.tsx
+│   ├── Index.tsx
+│   ├── Information.tsx
+│   ├── NotFound.tsx
+│   ├── Restaurant.tsx
+│   └── ScenicSpot.tsx
+├── router/
+│   └── index.tsx
+├── store/
+│   ├── guide.ts
 │   └── index.ts
-└── store/
-│   ├── flag.ts
-│   ├── index.ts
-│   └── process.ts
-└── style/
+├── style/
 │   ├── common/
 |   │   ├── all.css
-│   │   ├── background.css
+│   │   ├── badge.css
 │   │   ├── button.css
-│   │   ├── dialog.css
-│   │   ├── frame.css
-│   │   ├── frosted.css
-│   │   ├── list.css
+│   │   ├── caption.css
+│   │   ├── carousel.css
+│   │   ├── datePicker.css
+│   │   ├── ellipsis.css
+│   │   ├── exhibit.css
+│   │   ├── input.css
 │   │   ├── mask.css
-│   │   ├── radio.css
-│   │   ├── role.css
-|   │   └── text.css   
+│   │   ├── middle.css
+|   │   └── picture.css
+│   ├── pages/
+|   │   ├── all.css
+|   │   └── index.css
 │   ├── index.css
 │   └── tailwind.css
-└── types/
-│   └── drag.d.ts
-└── utils/
-│   ├── checkType.ts
-│   ├── common.ts
-│   └── gsap.ts
+├── types/
+│   ├── activity.d.ts
+│   ├── menu.d.ts
+│   ├── restaurant.d.ts
+│   └── scenicSpot.d.ts
+├── utils/
+│   ├── ajax.ts
+│   ├── generateParams.ts
+│   ├── generateToken.ts
+│   └── images.ts
 ├── App.vue
+├── axios.d.ts
 ├── vite-env.d.ts
-└── main.ts
-``` -->
+└── main.tsx
+```
 
 ## Use Technology
 

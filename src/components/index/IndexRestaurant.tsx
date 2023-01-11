@@ -19,7 +19,7 @@ function IndexRestaurant() {
 
   useEffect(() => {
     async function getRestaurant() {
-      const sample = [5, 6, 9, 13, 15, 16, 18, 19, 20, 21];
+      const sample = [5, 6, 9, 13, 16, 18, 19, 20, 21, 26];
       const random = Math.random() * 10 | 0;
       const params = generateParams({
         $top: 4,
