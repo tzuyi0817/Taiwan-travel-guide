@@ -95,7 +95,7 @@ src/
 │   ├── generateParams.ts
 │   ├── generateToken.ts
 │   └── images.ts
-├── App.vue
+├── App.tsx
 ├── axios.d.ts
 ├── vite-env.d.ts
 └── main.tsx
@@ -112,3 +112,7 @@ src/
 - typescript
 - tailwindcss
 - vite
+
+## Third Party Service
+
+- Transport Data eXchange (TDX)
