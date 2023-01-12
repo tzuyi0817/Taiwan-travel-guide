@@ -27,7 +27,7 @@ function InformationContent() {
           <p><Title>景點地址：</Title><a href={`https://maps.google.com/maps?q=${guide?.Address}`}>{guide?.Address}</a></p>
           {guide?.WebsiteUrl && <p><Title>官方網站：</Title><a href={guide.WebsiteUrl}>{guide.WebsiteUrl}</a></p>}
           {guide?.TicketInfo && <p><Title>票價資訊：</Title>{guide.TicketInfo}</p>}
-          {guide?.Remarks && <p><Title>注意事項：</Title>{guide?.Remarks}</p>}
+          {guide?.Remarks && <p><Title>注意事項：</Title>{guide.Remarks}</p>}
         </>
       }
       {type === 'activity' && 
@@ -37,8 +37,8 @@ function InformationContent() {
           <p><Title>主辦單位：</Title>{guide?.Organizer}</p>
           <p><Title>活動地點：</Title><a href={`https://maps.google.com/maps?q=${guide?.Address}`}>{guide?.Address}</a></p>
           {guide?.WebsiteUrl && <p><Title>官方網站：</Title><a href={guide.WebsiteUrl}>{guide.WebsiteUrl}</a></p>}
-          {guide?.Charge && <p><Title>活動費用：</Title>{guide?.Charge}</p>}
-          {guide?.Remarks && <p><Title>注意事項：</Title>{guide?.Remarks}</p>}
+          {guide?.Charge && <p><Title>活動費用：</Title>{guide.Charge}</p>}
+          {guide?.Remarks && <p><Title>注意事項：</Title>{guide.Remarks}</p>}
         </>
       }
       {type === 'restaurant' && 

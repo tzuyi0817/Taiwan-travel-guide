@@ -4,7 +4,7 @@
   .carousel {
     @apply w-[90%] max-w-[350px] mx-auto cursor-pointer md:max-w-none;
     &_item {
-      @apply relative;
+      @apply relative bg-secondary/40;
     }
     &_image {
       @apply w-full h-[185px] md:h-[25vw] object-cover flex justify-center items-center;
