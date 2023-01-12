@@ -44,7 +44,11 @@ function IndexCarousel() {
 
             return (
               <div key={ScenicSpotID} className="carousel_item">
-                <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} className="carousel_image brightness-[0.8]" />
+                <img
+                  src={Picture.PictureUrl1}
+                  alt={Picture.PictureDescription1}
+                  className="carousel_image brightness-[0.8]"
+                />
                 <p className="middle text-white drop-shadow-2xl md:text-[28px]">{`${City} | ${ScenicSpotName}`}</p>
               </div>
             )
