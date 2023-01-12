@@ -7,10 +7,26 @@
       @apply relative bg-secondary/40;
     }
     &_image {
-      @apply w-full h-[185px] md:h-[25vw] object-cover flex justify-center items-center;
-      img {
-        @apply max-w-[50px] md:max-w-[90px];
-      }
+      @apply 
+      w-full
+      h-[185px]
+      md:h-[25vw]
+      object-cover
+      flex
+      justify-center
+      items-center
+      relative
+      after:content-['']
+      after:absolute
+      after:block
+      after:top-0
+      after:left-0
+      after:w-full
+      after:h-full
+      after:bg-no-repeat
+      after:bg-cover
+      after:bg-center
+      after:bg-[url('/src/assets/images/image.png')];
     }
     .slider-wrapper {
       @apply rounded-2xl md:rounded-3xl;

@@ -47,7 +47,7 @@ function IndexCarousel() {
                 <img
                   src={Picture.PictureUrl1}
                   alt={Picture.PictureDescription1}
-                  className="carousel_image brightness-[0.8]"
+                  className="carousel_image brightness-[0.90]"
                 />
                 <p className="middle text-white drop-shadow-2xl md:text-[28px]">{`${City} | ${ScenicSpotName}`}</p>
               </div>

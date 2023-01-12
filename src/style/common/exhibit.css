@@ -16,6 +16,21 @@
     md:grid-cols-4;
     .picture {
       @apply w-[220px] h-[160px] rounded-[20px] bg-secondary/40 md:w-full md:h-[200px];
+      img {
+        @apply
+        relative
+        after:content-['']
+        after:absolute
+        after:block
+        after:top-0
+        after:left-0
+        after:w-full
+        after:h-full
+        after:bg-no-repeat
+        after:bg-cover
+        after:bg-center
+        after:bg-[url('/src/assets/images/image.png')];
+      }
     }
     .name {
       @apply text-lg font-bold mt-[6px] ellipsis max-w-[220px] md:text-[22px] md:mt-3 md:max-w-full;
