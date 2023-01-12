@@ -2,6 +2,6 @@
 
 @layer components {
   .mask {
-    @apply absolute top-0 right-0 w-screen h-screen bg-black/[0.03] backdrop-blur-[2px] z-[9999];
+    @apply fixed top-0 right-0 w-screen h-screen bg-black/[0.03] backdrop-blur-[2px] z-[9999];
   }
 }
