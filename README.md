@@ -107,6 +107,8 @@ src/
 - react-select
 - react-responsive-carousel
 - react-datepicker
+- react-dom
+- react-router-dom
 - redux
 - redux-persist
 - typescript
@@ -115,4 +117,4 @@ src/
 
 ## Third Party Service
 
-- Transport Data eXchange (TDX)
+- [Transport Data eXchange (TDX)](https://tdx.transportdata.tw/api-service/swagger)
