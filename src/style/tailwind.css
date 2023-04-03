@@ -9,8 +9,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  #root {
-    @apply py-16 w-[90%] max-w-[350px] mx-auto md:py-[140px] md:max-w-none;
+  .container {
+    @apply py-16 w-[90%] max-w-[350px] min-h-[calc(100vh-60px)] mx-auto md:py-[140px] md:max-w-none;
   }
 
   h1 {

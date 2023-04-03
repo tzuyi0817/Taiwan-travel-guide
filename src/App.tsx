@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <GuideHeader />
-      <Routes />
+      <div className="container">
+        <Routes />
+      </div>
       <GuideFooter />
     </>
   )

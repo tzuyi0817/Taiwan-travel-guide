@@ -53,7 +53,7 @@ function IndexActivity() {
               <div className="picture">
                 <img src={Picture.PictureUrl1} alt={Picture.PictureDescription1} />
               </div>
-              <div className="ml-4 w-[calc(100%-106px)] h-full md:flex md:flex-col md:justify-around">
+              <div className="ml-4 w-[calc(100%-106px)] h-full md:flex md:w-[calc(100%-200px)] md:flex-col md:justify-around">
                 <div>
                   <p className="text-xs text-[#646464] md:text-base">{`${formatTime(StartTime)} ~ ${formatTime(EndTime)}`}</p>
                   <p className="font-bold ellipsis md:text-[22px]">{ActivityName}</p>
